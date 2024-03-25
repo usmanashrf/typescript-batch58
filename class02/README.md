@@ -6,7 +6,9 @@ Inquirer is a powerful library for creating command-line interfaces in Node.js. 
 
 Before using Inquirer, ensure you have Node.js installed. Then, install Inquirer using npm:
 Run Following 3 Commands in your project deirectory
+
 ```bash
+tsc --init
 npm install inquirer
 npm i @types/node -D
 npm i @types/inquirer -D
@@ -18,22 +20,23 @@ npm i @types/inquirer -D
 import inquirer from "inquirer";
 
 let Name = await inquirer.prompt([{
-  name: "name",
-  message: "Enter your name?",
-  type: "input",
+    name: "name",
+    message: "Enter your name?",
+    type: "input",
   }]);
-    
-  console.log("Hello, " + name + "!");
+  
+  console.log("Hello, " + Name.name + "!");
+
 ```
 ### Some Important Points To Avoid Errors:
 
-1. In your `tsconfig.json` file, on line `25`. change `module` value from `commonJs` to `NodeNext` :
-`"module": "NodeNext",`
+1. In your `tsconfig.json` file, on line `14` change `"target": es2016` to `"target": es2022`
 
-2. In your `tsconfig.json` file, on line `27` . set `moduleResolution` to `NodeNext` :
-`"moduleResolution": "NodeNext",`
+2. In your `tsconfig.json` file, on line `28`. change `"module": "commonjs"` to `"module": "NodeNext"`
 
-3. In your `package.json` file, Add Following code` :
+3. In your `tsconfig.json` file, on line `30` . set `"moduleResolution": "node10"` to `"moduleResolution": "NodeNext",` and remain uncomment
+
+4. In your `package.json` file, Add Following code` :
     
     `"type": "module",`
     
